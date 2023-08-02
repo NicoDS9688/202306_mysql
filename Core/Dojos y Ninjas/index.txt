@@ -1,0 +1,50 @@
+-- INSERT DOJOS
+INSERT dojos(name, created_at ,updated_at) VALUES
+("Kaio-ken Dojo", now(), now()),
+("Genkidama Dojo", now(), now()),
+("Kamehameha Dojo", now(), now());
+
+-- DELETE DOJOS
+DELETE FROM dojos
+WHERE dojos.id in (1, 2, 3);
+
+
+-- INSERT NEW DOJOS
+INSERT dojos(name, created_at, updated_at) VALUES
+("Shinra Tensei Dojo", now(), now()),
+("Rasengan Dojo", now(), now()),
+("Chidori Dojo", now(), now());
+
+-- INSERT NINJAS
+INSERT ninjas(first_name, last_name, age, created_at, updated_at, dojo_id) VALUES
+("Naruto", "Uzumaki", 14, now(), now(), 4),
+("Sasuke", "Uchiha", 14, now(), now(), 4),
+("Sakura", "Haruno", 13, now(), now(), 4);
+
+INSERT ninjas(first_name, last_name, age, created_at, updated_at, dojo_id) VALUES
+("Shikamaru", "Nara", 14, now(), now(), 5),
+("Chōji", "Akimichi", 14, now(), now(), 5),
+("Ino", "Yamanaka", 14, now(), now(), 5);
+
+INSERT ninjas(first_name, last_name, age, created_at, updated_at, dojo_id) VALUES
+("Kiba", "Inuzuka", 14, now(), now(), 6),
+("Shino", "Aburame", 14, now(), now(), 6),
+("Hinata", "Hyūga", 14, now(), now(), 6);
+
+-- SELECT
+SELECT ninjas.first_name, ninjas.last_name, dojos.name
+FROM dojos 
+JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 4;
+
+SELECT ninjas.first_name, ninjas.last_name, dojos.name
+FROM dojos 
+JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 5;
+
+SELECT ninjas.first_name, ninjas.last_name, dojos.name
+FROM dojos 
+JOIN ninjas ON dojos.id = ninjas.dojo_id
+WHERE dojos.id = 6
+ORDER BY ninjas.id DESC
+LIMIT 1;
