@@ -1,0 +1,73 @@
+-- INSERT
+INSERT usuarios(name,  created_at, updated_at) VALUES
+("Jane Austen", now(), now()),
+("Emily Dickinson", now(), now()),
+("Fyodor Dostoevsky", now(), now()),
+("William Shakespeare", now(), now()),
+("Lau Tzu", now(), now());
+
+INSERT libros(titulo, num_paginas, created_at, updated_at) VALUES
+("C Sharp", 600, now(), now()),
+("Java", 1000, now(), now()),
+("Python", 250, now(), now()),
+("PHP", 250, now(), now()),
+("Ruby", 300, now(), now());
+
+-- UPDATE
+UPDATE libros
+SET titulo = "C#"
+WHERE id = 1;
+
+UPDATE usuarios
+SET name = "Bill Shakespeare"
+WHERE id = 4;
+
+-- INSERT 
+INSERT favoritos(usuario_id, libro_id) VALUES
+(1, 1),
+(1, 2);
+
+INSERT favoritos(usuario_id, libro_id) VALUES
+(2, 1),
+(2, 2),
+(2, 3);
+
+INSERT favoritos(usuario_id, libro_id) VALUES
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4);
+
+INSERT favoritos(usuario_id, libro_id) VALUES
+(4, 1),
+(4, 2),
+(4, 3),
+(4, 4),
+(4, 5);
+
+-- SELECT
+SELECT usuarios.name
+FROM usuarios
+JOIN favoritos ON usuarios.id = favoritos.usuario_id
+WHERE favoritos.libro_id = 3;
+
+-- DELETE
+DELETE FROM favoritos
+WHERE libro_id = 3
+ORDER BY libro_id
+LIMIT 1;
+
+-- INSERT
+INSERT favoritos(usuario_id, libro_id) VALUES
+(5, 2);
+
+-- SELECT
+SELECT libros.titulo
+FROM libros
+JOIN favoritos ON libros.id = favoritos.libro_id
+WHERE favoritos.usuario_id = 3;
+
+SELECT usuarios.name
+FROM usuarios
+JOIN favoritos ON usuarios.id = favoritos.usuario_id
+WHERE favoritos.libro_id = 5;
