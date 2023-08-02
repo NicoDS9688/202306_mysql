@@ -1,0 +1,38 @@
+-- USE
+USE users_schema;
+
+-- INSERT
+INSERT INTO usuarios(name,last_name,email,created_at,updated_at)
+VALUES ("Geralt","Of Rivia","geraltofrivia@witcher.com", now(), now());
+
+INSERT INTO usuarios(name,last_name,email,created_at,updated_at)
+VALUES ("John","Shepard","johnshepard@thealliance.com",now(),now());
+
+INSERT INTO usuarios(name,last_name,email,created_at,updated_at)
+VALUES ("Frodo","baggins","frodobaggins@theshire.com", now(), now());
+
+
+-- SELECT
+SELECT * FROM usuarios;
+
+SELECT email FROM usuarios
+WHERE id = 1;
+
+SELECT email FROM usuarios
+WHERE id = 3;
+
+-- UPDATE
+UPDATE usuarios
+SET last_name = "Panqueques"
+WHERE id = 3;
+
+-- DELETE
+DELETE FROM usuarios
+WHERE id = 2;
+
+-- SELECT
+SELECT name FROM usuarios
+ORDER BY name;
+
+SELECT * FROM usuarios
+ORDER BY name DESC;
