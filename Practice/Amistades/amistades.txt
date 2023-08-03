@@ -1,0 +1,31 @@
+-- INSERT
+INSERT users(first_name,  last_name, created_at, updated_at) VALUES
+("Amy", "Giver", NOW(), NOW()),
+("Eli", "Byers", NOW(), NOW()),
+("Marky", "Mark", NOW(), NOW()),
+("Big", "Bird", NOW(), NOW()),
+("La rana", "René", NOW(), NOW()),
+("John", "Shepard", NOW(), NOW());
+
+INSERT friendships(user_id, friend_id) VALUES
+(1, 2), (1, 4), (1, 6);
+
+INSERT friendships(user_id, friend_id) VALUES
+(2, 1), (2, 3), (2, 5);
+
+INSERT friendships(user_id, friend_id) VALUES
+(3, 2), (3, 5);
+
+INSERT friendships(user_id, friend_id) VALUES
+(4, 3);
+
+INSERT friendships(user_id, friend_id) VALUES
+(5, 1), (5, 6);
+
+INSERT friendships(user_id, friend_id) VALUES
+(6, 2), (6, 3);
+
+-- SELECT
+SELECT * FROM users 
+JOIN friendships ON friendships.user_id = users.id 
+LEFT JOIN users as user2 ON friendships.friend_id = user2.id;
